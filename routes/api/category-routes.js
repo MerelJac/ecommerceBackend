@@ -36,7 +36,7 @@ router.delete('/:id', async (req, res) => {
 
 router.put('/:id', async (req, res) => {
     // update a cateogry // successful
-    var updatedCatData = await Category.update({
+    const updatedCatData = await Category.update({
         category_name: req.body.category_name
     }, {
         where: {
