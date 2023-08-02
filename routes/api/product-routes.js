@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
     res.json(allProductData)
 });
 
-// get one product
+// get one product //successful
 router.get('/:id', async (req, res) => {
     const getOneProduct = await Product.findByPk(req.params.id);
     console.log(`found one product`);
@@ -23,15 +23,29 @@ router.post('/', async (req, res) => {
     res.json(newProductData)
 })
 
-  //update product
-  router.put('/:id', (req, res) => {
-
+  //update product name //successful
+  router.put('/:id', async (req, res) => {
+    const updateProduct = await Product.update({
+        product_name: req.body.product_name
+    }, {
+        where: {
+            id: req.params.id
+        }
+    });
+    console.log(`Product name updated`);
+    res.json(updateProduct)
 
   })
 
-// delete one product by id
-router.delete('/:id', (req, res) => {
-    console.log(res)
+// delete one product by id //successful
+router.delete('/:id', async (req, res) => {
+    const deleteProduct = await Product.destroy({
+        where: {
+            id: req.params.id
+        }
+    })
+    console.log(`product deleted`);
+    res.json(deleteProduct)
 });
 
 module.exports = router;
