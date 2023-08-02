@@ -3,9 +3,11 @@ const { Category, Product} = require('../../models');
 
 // add API endpoints
 
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
     // find all categories
-    console.log(res.json())
+    const allCategories = await Category.findAll()
+    console.log(`worked`);
+    res.json(allCategories)
 });
 
 router.get('/:id', (req, res) => {
@@ -13,9 +15,11 @@ router.get('/:id', (req, res) => {
     console.log(res.json())
 });
 
-router.post('/', (req, res) => {
+router.post('/', async (req, res) => {
     // create a new category
-    console.log(res.json())
+    const newCatData = await Category.create(req.body)
+    console.log(newCatData);
+    res.json(`created: ` + newCatData)
 });
 
 router.post('/', (req, res) => {
@@ -23,9 +27,26 @@ router.post('/', (req, res) => {
     console.log(res.json())
 });
 
-router.delete('/', (req, res) => {
+router.delete('/:id', async (req, res) => {
     // delete a category
-    console.log(res.json())
+    const deleteCatData = await Category.destroy({
+        where: {
+            id: req.params.id
+        }})
+    console.log('detroyed: ' + deleteCatData);
+    res.json('detroyed: ' + deleteCatData);
 });
+
+router.put('/:id', async (req, res) => {
+    var updatedCatData = await Category.update({
+        category_name: req.body.category_name
+    }, {
+        where: {
+            id: req.params.id
+        }
+    });
+    console.log(`updated: ` + updatedCatData);
+    res.json(`updated: ` + updatedCatData);
+})
 
 module.exports = router;
