@@ -66,6 +66,18 @@ You can test the API using tools like [Insomnia Core](https://insomnia.rest/core
 
 In the future, the application will be enhanced to include a front-end code where users can create input and add user-specific styling. This will allow for a more interactive and user-friendly experience.
 
+## Deployed Appliction 
+[Video Walkthrough]()
+
+Example of Insomnia Routes
+
+![alt text](./public/images/exampleInsomnia.png)
+
+Example of Front End
+
+![alt text](./public/images/indexHTML.png)
+![alt text](./public/images/exampleDeleteRoute.png)
+
 ## Contributions
 
 Backend code was inspired by [this](https://github.com/coding-boot-camp/fantastic-umbrella) project. 
