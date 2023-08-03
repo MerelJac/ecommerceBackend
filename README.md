@@ -67,7 +67,7 @@ You can test the API using tools like [Insomnia Core](https://insomnia.rest/core
 In the future, the application will be enhanced to include a front-end code where users can create input and add user-specific styling. This will allow for a more interactive and user-friendly experience.
 
 ## Deployed Appliction 
-[Video Walkthrough]()
+[Video Walkthrough](https://drive.google.com/file/d/1toJLRYudxAJrlNGpMoeoRcmodHKV8ohH/view)
 
 Example of Insomnia Routes
 
