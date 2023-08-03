@@ -9,7 +9,7 @@ const PORT = 3001;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true}));
 app.use(routes);
-
+app.use(express.static('public'));
 
 sequelize.sync({ force: false}).then(() => {
     app.listen(PORT, (res, req) => {
