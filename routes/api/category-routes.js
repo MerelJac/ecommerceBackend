@@ -14,7 +14,7 @@ router.get('/:id', async (req, res) => {
     // find one category by ID //successful
     const foundCategory = await Category.findByPk(req.params.id);
     console.log(`found category by id: ` + foundCategory)
-    res.json(`found category by id: ` + foundCategory);
+    res.json(foundCategory);
 });
 
 router.post('/', async (req, res) => {

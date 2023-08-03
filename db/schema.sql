@@ -11,4 +11,4 @@ SELECT * FROM product;
 
 SELECT * FROM tag;
 
-SELECT * FROM ProductTag;
+SELECT * FROM product_tag;

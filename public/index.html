@@ -3,17 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/styles.css">
     <title>Inventory</title>
 </head>
 <body>
-    <h2>Inventory</h2>
-    <div id="categoryDiv">
-        <label>Category</label>
-        <input type="text" id="categoryText">
-        <button id="categoryShowAll">Show All</button>
-        <button id="categoryCreateNew">Create New</button>
-        <button id="categoryDelete">Delete</button>
-    </div>
+    <h1>Inventory</h1>
+    <section>
+        <h2>View All By</h2>
+        <!-- get all requests -->
+            <div>
+                <button id="catGetBtn">Category</button>
+                <button id="productGetBtn">Product</button>
+                <button id="tagGetBtn">Tag</button>
+            </div>
+        <section id="printAll">
+    </section>
+    <section>
+        <h2>Select By Id</h2>
+        <input id="idSearch" type="number">
+        <!-- get all requests -->
+            <div>
+                <button id="findBtn">Find</button>
+                <button>Delete</button>
+                <button id="updateBtnShow">Update Name</button>
+                    <div class="hide" id="updateInfoDiv">
+                        <input type="text" placeholder="Enter Update Name">
+                        <button>Update</button>
+                    </div>
+            </div>
+            <p id="result"></p>
+    </section>
 <script src="./assets/script.js"></script>
 </body>
 </html>
