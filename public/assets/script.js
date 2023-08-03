@@ -72,6 +72,7 @@ tagGetBtn.addEventListener('click', () => {
     })
 })
 
+// show update text input
 updateBtnShow.addEventListener('click', () => {
     console.log('clicked')
     const updateInfoDiv = document.querySelector('#updateInfoDiv');
@@ -83,6 +84,8 @@ findBtn.addEventListener('click', () => {
     //clear resutls section
     resultSection.textContent = '';
     idSearchValue = idSearch.value;
+    // clear
+    idSearch.value = ''
     console.log(`/api/${passedTerm}/${idSearchValue}`);
     fetch(`/api/${passedTerm}/${idSearchValue}`).then((response) => {
         return response.json()
@@ -94,12 +97,13 @@ findBtn.addEventListener('click', () => {
     .catch((err) => console.error(err))
 })
 
-
 // delete one index
 deleteBtn.addEventListener('click', () => {
     //clear resutls section
     resultSection.textContent = '';
     idSearchValue = idSearch.value;
+    // clear
+    idSearch.value = ''
     let name;
     if (passedTerm == 'categories') {name == 'category'} else if (passedTerm == 'products') {
         name == 'product'
@@ -117,6 +121,34 @@ deleteBtn.addEventListener('click', () => {
 })
 
 // update name
+updateBtn.addEventListener('click', () => {
+    //clear resutls section
+    resultSection.textContent = '';
+    idSearchValue = idSearch.value;
+    // clear
+    idSearch.value = ''
+    let updateTextValue = updateText.value;
+    let name;
+    if (passedTerm == 'categories') {name = 'category_name'} else if (passedTerm == 'products') {
+        name = 'product_name'
+    } else if (passedTerm == 'tags') { name = 'tag_name'} else {console.log('error in converting name')}
+    console.log(`/api/${passedTerm}/${idSearchValue}`);
+    fetch(`/api/${passedTerm}/${idSearchValue}`, {
+        method: 'PUT',
+        headers: {
+            'Content-type': 'application/json'
+        },
+        body: JSON.stringify({[name]: updateTextValue})
+    }).then((response) => {
+        return response.json()
+    }).then((data) => {
+        resultSection.textContent = (`id: ${idSearchValue} was udpated`)
+        console.log(data)
+    })
+    .catch((err) => console.error(err))
+})
+
+// create name
 updateBtn.addEventListener('click', () => {
     //clear resutls section
     resultSection.textContent = '';
@@ -141,3 +173,4 @@ updateBtn.addEventListener('click', () => {
     })
     .catch((err) => console.error(err))
 })
+
